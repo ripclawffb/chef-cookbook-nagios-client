@@ -1,6 +1,6 @@
 ---
-driver:
-  name: vagrant
+# driver:
+#   name: vagrant
 
 ## The forwarded_port port feature lets you connect to ports on the VM guest via
 ## localhost on the host.
@@ -20,9 +20,32 @@ provisioner:
 verifier:
   name: inspec
 
+transport:
+  name: ssh
+  # username: kitchen
+  # password: kitchen
+  username: vagrant
+  password: vagrant
+
+# platforms:
+#   - name: ubuntu-18.04
+#   - name: centos-7
+
 platforms:
-  - name: ubuntu-18.04
-  - name: centos-7
+  # - name: CentOS7
+  #   driver:
+  #     name: hyperv
+  #     parent_vhd_folder: C:\Users\admin\Documents\Virtual Machines\CentOS7
+  #     parent_vhd_name: CentOS7.vhdx
+  #     vm_switch: InternalSwitch
+  #     memory_startup_bytes: 2GB
+  - name: RHEL7
+    driver:
+      name: hyperv
+      parent_vhd_folder: C:\Users\admin\Documents\Vagrant\RHEL7\.vagrant\machines\default\hyperv\Virtual Hard Disks
+      parent_vhd_name: generic-rhel7-hyperv.vhdx
+      vm_switch: InternalSwitch
+      memory_startup_bytes: 2GB
 
 suites:
   - name: default
@@ -30,3 +53,4 @@ suites:
       inspec_tests:
         - test/integration/default
     attributes:
+

@@ -1,4 +1,6 @@
-# cookbook-nagios_client
+# Nagio Client
 
-TODO: Enter the cookbook description here.
+Installs/Configures Nagios Client (ncpa)
+
+
 
